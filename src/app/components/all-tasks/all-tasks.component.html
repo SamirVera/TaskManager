@@ -1,0 +1,23 @@
+<div class="c-main">
+    <div  class="title-bar">
+        <p class="title">{{ title }}</p>
+        <button *ngIf="!isMobile" class="add-button" (click)="addItem()">
+            + Agregar
+        </button>
+        <button *ngIf="!isMobile" class="add-button" (click)="undo()">
+            Atrás
+        </button>
+    </div>
+
+    <div *ngIf="isMobile">
+        <ul class="list-group">
+            <app-item [item]="item" [index]="i" *ngFor="let item of listItems,
+            let i = index"></app-item>
+        </ul>
+    </div>
+
+    <div *ngIf="!isMobile">
+        <app-table [items]="listItems"></app-table>
+    </div>
+
+</div>

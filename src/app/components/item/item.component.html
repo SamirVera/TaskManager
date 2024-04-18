@@ -1,0 +1,21 @@
+<li class="list-group-item">
+  <input type="checkbox" [formControl]="chkItem" [id]="index">
+  <label [for]="index">{{ item.name }}</label>
+  
+  <!-- Botón para abrir el menú con más opciones -->
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <!-- Menú con opciones de Editar y Eliminar -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="editItem(item)">
+      <mat-icon>edit</mat-icon>
+      <span>Editar</span>
+    </button>
+    <button mat-menu-item class="save-button" (click)="deleteItem(item.id)">
+      <mat-icon>delete</mat-icon>
+      <span>Eliminar</span>
+    </button>
+  </mat-menu>
+</li>

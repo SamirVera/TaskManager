@@ -1,0 +1,21 @@
+<div class="c-header">
+  <span class="filter-label">Filtros:</span>
+  <select (change)="onMainChange($event)">
+    <option value="all">Todos</option>
+    <option value="state">Estado</option>
+    <option value="priority">Prioridad</option>
+  </select>
+
+  <select *ngIf="showSecondaryDropdown" (change)="onSecondaryChange($event)">
+    <option value="" disabled selected>Seleccione una opción</option>
+    <ng-container *ngIf="currentMainSelection === 'state'">
+      <option value="completed">Completado</option>
+      <option value="pending">Pendiente</option>
+    </ng-container>
+    <ng-container *ngIf="currentMainSelection === 'priority'">
+      <option value="high">Alta</option>
+      <option value="medium">Media</option>
+      <option value="low">Baja</option>
+    </ng-container>
+  </select>
+</div>
